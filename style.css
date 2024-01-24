@@ -6,7 +6,7 @@ body{
     margin: 0;
     background-color: #6895D2;
 }
-/* header */
+
 .header{
     height: 9rem;
     background-color: #202020;
@@ -23,7 +23,6 @@ body{
 .logo{
     width: 300px;
 }
-/* filtro */
 
 .textoFiltro{
     margin: 0;
@@ -84,7 +83,7 @@ body{
 .btnFiltro:hover::before {
     width: 100%;
 }
-/* contador personajes */
+
 .contador{
     letter-spacing: 2px;
     font-weight: 900;
@@ -98,7 +97,7 @@ body{
     z-index: 1;
     margin-top: 2rem;
 }
-/* contenedor tarjeta */
+
 .contenedorGral{
     display: flex;
     background-color: #6895D2;
@@ -108,7 +107,7 @@ body{
     gap: 30px;
     padding-top: 15px;
 }
-/* tarjetas */
+
 .card{
     background-color: #ffffff9e;
     margin-top: 25px;
@@ -186,7 +185,7 @@ body{
 .botonMas:hover::before {
     width: 100%;
 }
-/* paginado */
+
 .menuPaginado{
     padding: 50px;
     gap: 15px;
@@ -236,8 +235,6 @@ body{
     cursor: pointer;
 }
 
-
-/* footer */
 .footer{
     display: flex;
     justify-content: center;
@@ -257,8 +254,6 @@ body{
     color: #00B5CC;
 }
 
-/* modal */
-
 .modalFdo{
     top: 0;
     position: absolute;
@@ -267,6 +262,7 @@ body{
     background-color: rgb(43,43,43,0.5);
 
 }
+
 .modalFrente{
     border-radius: 25px;
     position: fixed;
@@ -280,7 +276,6 @@ body{
     box-shadow: 0 0 18px 7px;
 
 }
-
 .modalSuperior{
     border-radius: 25px 0px 0px 25px;
     display: flex;
