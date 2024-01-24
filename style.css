@@ -1,0 +1,421 @@
+
+body{
+    font-family: 'League Spartan',sans-serif;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background-color: #6895D2;
+}
+/* header */
+.header{
+    height: 9rem;
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header img{
+    width: 15rem;
+    padding: 2rem;
+}
+
+.logo{
+    width: 300px;
+}
+/* filtro */
+
+.textoFiltro{
+    margin: 0;
+    display: flex;
+    font-weight: 900;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.menuFiltros {
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.btnFiltro {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+    cursor: pointer;
+}
+   
+.btnFiltro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+}
+   
+.btnFiltro:hover {
+    color: #e8e8e8;
+}
+   
+.btnFiltro:hover::before {
+    width: 100%;
+}
+/* contador personajes */
+.contador{
+    letter-spacing: 2px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FDE767;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    margin-top: 2rem;
+}
+/* contenedor tarjeta */
+.contenedorGral{
+    display: flex;
+    background-color: #6895D2;
+    margin-top: 0px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 15px;
+}
+/* tarjetas */
+.card{
+    background-color: #ffffff9e;
+    margin-top: 25px;
+    position: relative;
+    border: 1px solid lightgray;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 750px;
+    transition: transform 0.3s ease, border 1s ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    border: 3px solid black ;
+    cursor: pointer;
+}
+
+.imgPersonaje{
+    width: 300px;
+    border-radius: 33px 33px 0px 0px;
+}
+
+.info{
+    display: flex;
+    font-size: 18px;
+    font-weight: 900;
+}
+.nombre{
+    padding-left: 13px;
+    font-size: 26px;
+    word-wrap: break-word;
+}
+
+.botonMas {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 0;
+    background: #e8e8e8;
+    bottom: -1.5pc;
+    position: absolute;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+    cursor: pointer;
+}
+   
+.botonMas::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+}
+   
+.botonMas:hover {
+    color: #e8e8e8;
+}
+   
+.botonMas:hover::before {
+    width: 100%;
+}
+/* paginado */
+.menuPaginado{
+    padding: 50px;
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.btnPaginado{
+    font-family: math;
+    font-weight: 900;
+    background-color: #FDE767;
+    box-shadow: 1px 4px 5px 0 #F3B95F;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.btnPaginado:disabled, .btnPaginado:disabled:hover{
+    background-color: rgba(112, 128, 144, 0.658);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.btnPaginado:hover{
+    box-shadow: 4px 6px 1px 0px #D04848;
+    transition: box-shadow 0.1s ease;
+    cursor: pointer;
+}
+
+.botonMas {
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 0;
+    background: #e8e8e8;
+    bottom: -1.5pc;
+    position: absolute;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+/* footer */
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 500px;
+    color: white;
+    background-color: black;
+}
+
+.footer a{
+    text-decoration: none;
+    color:#00B5CC;
+}
+
+.footer a:visited{
+    text-decoration: none;
+    color: #00B5CC;
+}
+
+/* modal */
+
+.modalFdo{
+    top: 0;
+    position: absolute;
+    display: none;
+    margin: 1rem;
+    background-color: rgb(43,43,43,0.5);
+
+}
+.modalFrente{
+    border-radius: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: #D04848;
+    width: 800px;
+    z-index: 1;
+    box-shadow: 0 0 18px 7px;
+
+}
+
+.modalSuperior{
+    border-radius: 25px 0px 0px 25px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D04848;
+}
+
+.modalInferior{
+    border-radius: 0px 25px 25px 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D04848;
+    gap: 10px;
+}
+
+.imgModal{
+    border: 1px solid black;
+    border-radius: 25px 0px 0px 0px;
+    width: 300px;
+}
+
+.tituloDato{
+    padding-top: 5px;
+    padding-left: 20px;
+    font-size: 24px;
+    margin: 0;
+    font-weight: 900;
+}
+
+.infoPersonajeModal {
+    padding-left: 50px;
+    font-weight: 500;
+    margin: 5px 0px 5px 0px;
+    font-size: 25px;
+}
+
+.episodios{
+    width: 430px;
+    height: 250px;
+    overflow: auto;
+}
+
+
+@media (max-width: 830px){
+
+    .contenedorGral {
+        justify-content: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+
+    .modalFrente {
+        width: 50%;
+    }
+
+    .imgModal{
+        border: 1px solid black;
+        border-radius: 25px 0px 0px 0px;
+        width: 160px;
+    }
+
+    .modalSuperior{
+        gap: 10px;
+        border-radius: 25px 0px 0px 25px;
+        display: flex;
+        flex-direction: column;
+        background-color: #D04848;
+    }
+
+    .modalInferior{
+        padding: 1rem .1rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #D04848;
+    }
+    
+    .tituloDato{
+        padding-top: 5px;
+        padding-left: 5px;
+        font-size: 15px;
+        margin: 0;
+        font-weight: 900;
+    }
+    
+    .infoPersonajeModal {
+        padding-left: 5px;
+        font-weight: 500;
+        margin: 5px 0px 5px 0px;
+        font-size: 15px;
+    }
+    
+    .episodios{
+        width: 170px;
+        height: 178px;
+        overflow: auto;
+    }
+    
+}
+
+@media (min-width : 831px){
+
+    .imgModal{
+        border: 1px solid black;
+        border-radius: 25px 0px 0px 0px;
+        width: 200px;
+    }
+
+    .modalInferior{
+        gap: 10px;
+    }
+
+    .modalFrente{
+        width: 700px;
+        left: 46%;
+    }
+}
+
+@media(max-width : 450px){
+    .modalFrente{
+        left: 32%
+    }
+}
+
+@media(min-width: 768px){
+    .menuFiltros {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
+
+}
