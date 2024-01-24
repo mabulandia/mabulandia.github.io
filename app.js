@@ -1,23 +1,19 @@
-// LLAMADO A ELEMENTOS HTML
-
-//CONTENEDORES
 let modalTarjeta = document.getElementById('modalInfo')
 let contenedorTarjeta = document.getElementById('contenedorTarjetas')
 let modalVisible = document.getElementById('modalFondo')
 let contador = document.getElementById('totalPagina')
 
-// BOTONES FILTROS
 let btnFiltroAll=document.getElementById('btnFiltroTodos')
 let btnFiltroMen=document.getElementById('btnFiltroHombre')
 let btnFiltroWomen=document.getElementById('btnFiltroMujer')
 let btnFiltroUnk=document.getElementById('btnFiltroUnknown')
 let btnFiltroGender=document.getElementById('btnFiltroGenderless')
-// PAGINADO
+
 let btnPaginadoPrimer = document.getElementById('btnPrimerPagina')
 let btnPaginadoAnterior = document.getElementById('btnAnteriorPagina')
 let btnPaginadoSiguiente = document.getElementById('btnSiguientePagina')
 let btnPaginadoUltima = document.getElementById('btnUltimaPagina')
-// BOTON MODAL
+
 let btnVerMas = document.getElementById('btnModal')
 let idpersonaje;
 let paginaActual = 1
@@ -25,9 +21,6 @@ let totalPersonajes;
 solicitudFetch(paginaActual)
 let totalPagina;
 
-//Funciones 
-
-//Fetch y datos
 function solicitudFetch(paginaActual){
     fetch('https://rickandmortyapi.com/api/character/?page='+paginaActual)
     .then( (data) => {
@@ -108,28 +101,25 @@ function mostrarPersonajes(lista){
             <button class="botonMas" id="btnModal" data-id="${personajeObj.id}">Ver más</button>
         </div> `
     });
-    // CAPTURA DE ID PARA MODAL
-    let botonesVerMas = document.querySelectorAll('.botonMas'); // SELECCIONA TODOS LOS BOTONES CON CLASE .botonMas
+
+    let botonesVerMas = document.querySelectorAll('.botonMas'); 
     botonesVerMas.forEach((boton) => {
-        boton.addEventListener('click', () => { // ASIGNA A CADA BOTON UN EVENTO
-            idpersonaje = boton.getAttribute('data-id'); //CAPTURA EL DATO PARA IMPRIMIRLO EN EL MODAL
+        boton.addEventListener('click', () => {
+            idpersonaje = boton.getAttribute('data-id');
             mostrarModal()
         });
     });
-    totalPagina = lista.length //CAPTURA TOTAL DE ELEMENTOS EN PANTALLA
+    totalPagina = lista.length 
     mostrarTotal() 
     habilitarBotones() 
 }
 
-// -------------------------FUNCIONES COMPLEMENTARIAS---------------------------------------------//
-
-//-----LISTADO DE EPISODIOS (PARA MODAL)
 function listarEpisodios(lista) {
     const promesasEpisodios = lista.map((episodioURL) => { 
         return fetch(episodioURL).then((response) => response.json());
-    }); //realiza un fetch de todas las url
+    });
 
-    return Promise.all(promesasEpisodios) //devuelve los datos cuando todas las promesas estan cumplidas
+    return Promise.all(promesasEpisodios) 
         .then((episodios) => {
             return episodios.map((datoEpisodio) => {
                 return `Nombre: ${datoEpisodio.name},Fecha de lanzamiento: ${datoEpisodio.air_date},Nro: ${datoEpisodio.episode}<br>`;
@@ -137,10 +127,6 @@ function listarEpisodios(lista) {
         })
 }
 
-
-
-
-//---------TOTAL DE PERSONAJES EN PANTALLA
 function mostrarTotal(){
     if(totalPagina>1 || totalPagina<1){
     contador.innerText=`Mostrando ${totalPagina} personajes`
@@ -148,13 +134,11 @@ function mostrarTotal(){
     contador.innerText=`Mostrando ${totalPagina} personaje`
     }
 }
-//---CERRAR MODAL
+
 function cerrarModal(){
     modalVisible.style.display='none'
 }
 
-
-//------------------------------Filtros
 function filtroMujeres(){
     let mujeres= totalPersonajes.filter((personaje)=>{
         return personaje.gender === 'Female'
@@ -163,6 +147,7 @@ function filtroMujeres(){
     mostrarTotal() 
 
 }
+
 function filtroHombres(){
     let hombres= totalPersonajes.filter((personaje)=>{
         return personaje.gender === 'Male'
@@ -171,6 +156,7 @@ function filtroHombres(){
     mostrarTotal()
 
 }
+
 function filtroUnknown(){
     let desconocido= totalPersonajes.filter((personaje)=>{
         return personaje.gender === 'unknown'
@@ -178,6 +164,7 @@ function filtroUnknown(){
     mostrarPersonajes(desconocido) 
     mostrarTotal()
 }
+
 function filtroGenderless(){
     let sinGenero = totalPersonajes.filter((personaje)=>{
         return personaje.gender === 'Genderless';
@@ -190,7 +177,6 @@ function filtroTodos(){
     mostrarPersonajes(totalPersonajes)    
     mostrarTotal()
 }
-//-------------------Paginado----------------------------
 
 function siguientePagina(){
     paginaActual++;
@@ -227,17 +213,12 @@ function habilitarBotones(){
     }
 }
 
-
-
-// ----------------------------------EVENTOS----------------------------- //
-
-//FILTROS----------------------------------------------------------
 btnFiltroMen.addEventListener('click',filtroHombres)
 btnFiltroWomen.addEventListener('click',filtroMujeres)
 btnFiltroUnk.addEventListener('click',filtroUnknown)
 btnFiltroGender.addEventListener('click',filtroGenderless)
 btnFiltroAll.addEventListener('click',filtroTodos)
-//PAGINADO------------------------------------------------------
+
 btnPaginadoPrimer.addEventListener('click',primerPagina)
 btnPaginadoAnterior.addEventListener('click',anteriorPagina)
 btnPaginadoSiguiente.addEventListener('click',siguientePagina)
